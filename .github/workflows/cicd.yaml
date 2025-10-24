@@ -64,13 +64,9 @@ jobs:
       - name: Update manifest files
         run: |
           cd hello-manifests
+          cd k8s
           NEW_TAG=${{ needs.build-and-push.outputs.image_tag }}
           
-          # Usa 'yq' para uma atualização de YAML mais segura (opcional, mas recomendado)
-          # Ou continue com 'sed' se preferir
-          
-          # Exemplo com sed (como no meu original):
-          # IMPORTANTE: Use seu DOCKER_USERNAME aqui!
           sed -i 's|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/hello-app:'$NEW_TAG'|' deployment.yaml
           sed -i 's|value:.*|value: "'$NEW_TAG'"|' deployment.yaml
 
