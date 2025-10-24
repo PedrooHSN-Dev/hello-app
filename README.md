@@ -288,25 +288,19 @@ Para validar o pipeline, fizemos uma alteração final no `main.py` para testar 
 
 A mensagem no `main.py` foi alterada para "Hello World - teste V2":
 
-```
-(Screenshot_1.png)
-```
+<img width="1389" height="227" alt="Screenshot_1" src="https://github.com/user-attachments/assets/f1ac6270-7619-4fd6-a99d-35d629680e64" />
 
 #### 2\. O Pipeline de CI (GitHub Actions)
 
 O `git push` dessa mudança disparou o pipeline, que foi executado com sucesso, construindo e publicando a nova imagem.
 
-```
-(Screenshot_2.png)
-```
+<img width="1389" height="452" alt="Screenshot_2" src="https://github.com/user-attachments/assets/f4716e09-aecb-4115-99dc-560a1048a9e6" />
 
 #### 3\. O Deploy de CD (ArgoCD)
 
 Após o Pull Request ser aprovado e feito o *merge*, o ArgoCD detectou a mudança no repositório `hello-manifests`, puxou a nova imagem e atualizou os pods no Kubernetes. A aplicação estabilizou em `Synced` (Sincronizada) e `Healthy` (Saudável), servindo a nova versão.
 
-```
-(Screenshot_3.png)
-```
+<img width="1389" height="813" alt="Screenshot_3" src="https://github.com/user-attachments/assets/0b9c839c-c825-42f6-9b7b-5f25c45f9787" />
 
 #### 4\. Testando a Aplicação Localmente
 
@@ -318,6 +312,4 @@ kubectl port-forward svc/hello-app-service -n default 8081:80
 
 Acessando `http://localhost:8081` no navegador, a nova mensagem do `main.py` é exibida com sucesso:
 
-```
-(Screenshot_4.png)
-```
+<img width="366" height="97" alt="Screenshot_4" src="https://github.com/user-attachments/assets/81f3aee3-ce15-4e66-bd61-0f02e04dd8ec" />
