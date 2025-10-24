@@ -74,7 +74,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           path: hello-manifests
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           commit-message: 'ci: update image to version ${{ needs.build-and-push.outputs.image_tag }}'
           title: 'Auto: Update image to version ${{ needs.build-and-push.outputs.image_tag }}'
           body: 'Automated PR to update image tag from CI pipeline.'
